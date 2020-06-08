@@ -129,34 +129,80 @@ export default {
               ],
             },
             {
-              name: 'list.table-list',
-              icon: 'table',
+              name: 'dashboard',
+              icon: 'dashboard',
+              path: '/dashboard',
+              routes: [
+                {
+                  name: 'analysis',
+                  icon: 'smile',
+                  path: '/dashboard/analysis',
+                  component: './dashboard/analysis',
+                },
+                {
+                  name: 'monitor',
+                  icon: 'smile',
+                  path: '/dashboard/monitor',
+                  component: './dashboard/monitor',
+                },
+                {
+                  name: 'workplace',
+                  icon: 'smile',
+                  path: '/dashboard/workplace',
+                  component: './dashboard/workplace',
+                },
+              ],
+            },
+            {
+              path: '/form',
+              icon: 'form',
+              name: 'form',
+              routes: [
+                {
+                  name: 'basic-form',
+                  icon: 'smile',
+                  path: '/form/basic-form',
+                  component: './form/basic-form',
+                },
+                {
+                  name: 'step-form',
+                  icon: 'smile',
+                  path: '/form/step-form',
+                  component: './form/step-form',
+                },
+                {
+                  name: '高级表单',
+                  icon: 'smile',
+                  path: '/form/advanced-form',
+                  component: './form/advanced-form',
+                },
+              ],
+            },
+            {
               path: '/list',
-              component: './ListTableList',
+              icon: 'table',
+              name: 'list',
+              routes: [
+                {
+                  name: 'table-list',
+                  icon: 'smile',
+                  path: '/list/table-list',
+                  component: './list/table-list',
+                },
+              ]
             },
             {
-              name: 'dashboard.analysis',
-              icon: 'smile',
-              path: '/dashboardanalysis',
-              component: './DashboardAnalysis',
-            },
-            {
-              name: 'editor.flow',
-              icon: 'smile',
-              path: '/editorflow',
-              component: './EditorFlow',
-            },
-            {
-              name: 'dashboard.monitor',
-              icon: 'smile',
-              path: '/dashboardmonitor',
-              component: './DashboardMonitor',
-            },
-            {
-              name: 'dashboard.workplace',
-              icon: 'smile',
-              path: '/dashboardworkplace',
-              component: './DashboardWorkplace',
+              name: 'editor',
+              icon: 'highlight',
+              path: '/editor',
+              routes: [
+                {
+                  name: 'flow',
+                  icon: 'smile',
+                  path: '/editor/flow',
+                  component: './editor/flow',
+                },
+              ],
             },
             {
               component: './404',

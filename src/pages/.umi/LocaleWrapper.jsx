@@ -35,7 +35,7 @@ defaultAntd = defaultAntd.default || defaultAntd;
 const localeInfo = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardAnalysis/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardMonitor/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/EditorFlow/locales/en-US.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/analysis/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/monitor/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/editor/flow/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/basic-form/locales/en-US.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/step-form/locales/en-US.js')),
     },
     locale: 'en-US',
     antd: require('antd/es/locale-provider/en_US'),
@@ -44,7 +44,7 @@ const localeInfo = {
   },
   'pt-BR': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardAnalysis/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardMonitor/locales/pt-BR.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/analysis/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/monitor/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/basic-form/locales/pt-BR.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/step-form/locales/pt-BR.js')),
     },
     locale: 'pt-BR',
     antd: require('antd/es/locale-provider/pt_BR'),
@@ -53,7 +53,7 @@ const localeInfo = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardAnalysis/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardMonitor/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/EditorFlow/locales/zh-CN.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/analysis/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/monitor/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/editor/flow/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/basic-form/locales/zh-CN.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/step-form/locales/zh-CN.js')),
     },
     locale: 'zh-CN',
     antd: require('antd/es/locale-provider/zh_CN'),
@@ -62,7 +62,7 @@ const localeInfo = {
   },
   'zh-TW': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardAnalysis/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardMonitor/locales/zh-TW.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/analysis/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/monitor/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/basic-form/locales/zh-TW.js')),...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/step-form/locales/zh-TW.js')),
     },
     locale: 'zh-TW',
     antd: require('antd/es/locale-provider/zh_TW'),

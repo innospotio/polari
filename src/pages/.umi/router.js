@@ -8,7 +8,7 @@ import {
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/lib/renderRoutes';
 import history from '@@/history';
-import RendererWrapper0 from '/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/.umi/LocaleWrapper.jsx';
+import RendererWrapper0 from '/Users/mdsftjoin/Documents/workspace/polari/src/pages/.umi/LocaleWrapper.jsx';
 import { routerRedux, dynamic as _dvaDynamic } from 'dva';
 
 const Router = routerRedux.ConnectedRouter;
@@ -20,7 +20,7 @@ const routes = [
       ? _dvaDynamic({
           component: () =>
             import(/* webpackChunkName: "layouts__UserLayout" */ '../../layouts/UserLayout'),
-          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
             .default,
         })
       : require('../../layouts/UserLayout').default,
@@ -32,7 +32,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "p__user__login" */ '../user/login'),
-              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                 .default,
             })
           : require('../user/login').default,
@@ -41,7 +41,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/mdsftjoin/Documents/workspace/ins-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -54,7 +54,7 @@ const routes = [
       ? _dvaDynamic({
           component: () =>
             import(/* webpackChunkName: "layouts__SecurityLayout" */ '../../layouts/SecurityLayout'),
-          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
             .default,
         })
       : require('../../layouts/SecurityLayout').default,
@@ -65,7 +65,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "layouts__BasicLayout" */ '../../layouts/BasicLayout'),
-              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                 .default,
             })
           : require('../../layouts/BasicLayout').default,
@@ -84,7 +84,7 @@ const routes = [
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__Welcome" */ '../Welcome'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                     .default,
                 })
               : require('../Welcome').default,
@@ -98,7 +98,7 @@ const routes = [
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__Admin" */ '../Admin'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                     .default,
                 })
               : require('../Admin').default,
@@ -112,7 +112,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "p__Admin" */ '../Welcome'),
-                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../Welcome').default,
@@ -122,7 +122,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/mdsftjoin/Documents/workspace/ins-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -130,105 +130,231 @@ const routes = [
             ],
           },
           {
-            name: 'list.table-list',
-            icon: 'table',
+            name: 'dashboard',
+            icon: 'dashboard',
+            path: '/dashboard',
+            routes: [
+              {
+                name: 'analysis',
+                icon: 'smile',
+                path: '/dashboard/analysis',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__dashboard__analysis__model.jsx' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/analysis/model.jsx').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/analysis'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../dashboard/analysis').default,
+                exact: true,
+              },
+              {
+                name: 'monitor',
+                icon: 'smile',
+                path: '/dashboard/monitor',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__dashboard__monitor__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/monitor/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/monitor'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../dashboard/monitor').default,
+                exact: true,
+              },
+              {
+                name: 'workplace',
+                icon: 'smile',
+                path: '/dashboard/workplace',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__dashboard__workplace__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/dashboard/workplace/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/workplace'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../dashboard/workplace').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
+          },
+          {
+            path: '/form',
+            icon: 'form',
+            name: 'form',
+            routes: [
+              {
+                name: 'basic-form',
+                icon: 'smile',
+                path: '/form/basic-form',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__form__basic-form__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/basic-form/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../form/basic-form'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../form/basic-form').default,
+                exact: true,
+              },
+              {
+                name: 'step-form',
+                icon: 'smile',
+                path: '/form/step-form',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__form__step-form__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/step-form/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../form/step-form'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../form/step-form').default,
+                exact: true,
+              },
+              {
+                name: '高级表单',
+                icon: 'smile',
+                path: '/form/advanced-form',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__form__advanced-form__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/form/advanced-form/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../form/advanced-form'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../form/advanced-form').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
+          },
+          {
             path: '/list',
-            component: __IS_BROWSER
-              ? _dvaDynamic({
-                  component: () =>
-                    import(/* webpackChunkName: "p__ListTableList" */ '../ListTableList'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
-                    .default,
-                })
-              : require('../ListTableList').default,
-            exact: true,
+            icon: 'table',
+            name: 'list',
+            routes: [
+              {
+                name: 'table-list',
+                icon: 'smile',
+                path: '/list/table-list',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/table-list'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../list/table-list').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
           },
           {
-            name: 'dashboard.analysis',
-            icon: 'smile',
-            path: '/dashboardanalysis',
-            component: __IS_BROWSER
-              ? _dvaDynamic({
-                  app: require('@tmp/dva').getApp(),
-                  models: () => [
-                    import(/* webpackChunkName: 'p__DashboardAnalysis__model.jsx' */ '/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardAnalysis/model.jsx').then(
-                      m => {
-                        return { namespace: 'model', ...m.default };
-                      },
-                    ),
-                  ],
-                  component: () =>
-                    import(/* webpackChunkName: "p__DashboardAnalysis" */ '../DashboardAnalysis'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
-                    .default,
-                })
-              : require('../DashboardAnalysis').default,
-            exact: true,
-          },
-          {
-            name: 'editor.flow',
-            icon: 'smile',
-            path: '/editorflow',
-            component: __IS_BROWSER
-              ? _dvaDynamic({
-                  component: () =>
-                    import(/* webpackChunkName: "p__EditorFlow" */ '../EditorFlow'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
-                    .default,
-                })
-              : require('../EditorFlow').default,
-            exact: true,
-          },
-          {
-            name: 'dashboard.monitor',
-            icon: 'smile',
-            path: '/dashboardmonitor',
-            component: __IS_BROWSER
-              ? _dvaDynamic({
-                  app: require('@tmp/dva').getApp(),
-                  models: () => [
-                    import(/* webpackChunkName: 'p__DashboardMonitor__model.js' */ '/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardMonitor/model.js').then(
-                      m => {
-                        return { namespace: 'model', ...m.default };
-                      },
-                    ),
-                  ],
-                  component: () =>
-                    import(/* webpackChunkName: "p__DashboardMonitor" */ '../DashboardMonitor'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
-                    .default,
-                })
-              : require('../DashboardMonitor').default,
-            exact: true,
-          },
-          {
-            name: 'dashboard.workplace',
-            icon: 'smile',
-            path: '/dashboardworkplace',
-            component: __IS_BROWSER
-              ? _dvaDynamic({
-                  app: require('@tmp/dva').getApp(),
-                  models: () => [
-                    import(/* webpackChunkName: 'p__DashboardWorkplace__model.js' */ '/Users/mdsftjoin/Documents/workspace/ins-pro/src/pages/DashboardWorkplace/model.js').then(
-                      m => {
-                        return { namespace: 'model', ...m.default };
-                      },
-                    ),
-                  ],
-                  component: () =>
-                    import(/* webpackChunkName: "p__DashboardWorkplace" */ '../DashboardWorkplace'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
-                    .default,
-                })
-              : require('../DashboardWorkplace').default,
-            exact: true,
+            name: 'editor',
+            icon: 'highlight',
+            path: '/editor',
+            routes: [
+              {
+                name: 'flow',
+                icon: 'smile',
+                path: '/editor/flow',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../editor/flow'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../editor/flow').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
           },
           {
             component: __IS_BROWSER
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__404" */ '../404'),
-                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                     .default,
                 })
               : require('../404').default,
@@ -237,7 +363,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/mdsftjoin/Documents/workspace/ins-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'src/pages', hasRoutesInConfig: true },
               ),
@@ -249,7 +375,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "p__404" */ '../404'),
-              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
                 .default,
             })
           : require('../404').default,
@@ -258,7 +384,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/mdsftjoin/Documents/workspace/ins-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -269,7 +395,7 @@ const routes = [
     component: __IS_BROWSER
       ? _dvaDynamic({
           component: () => import(/* webpackChunkName: "p__404" */ '../404'),
-          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/ins-pro/src/components/PageLoading/index')
+          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
             .default,
         })
       : require('../404').default,
@@ -278,7 +404,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Users/mdsftjoin/Documents/workspace/ins-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'src/pages', hasRoutesInConfig: true },
       ),
