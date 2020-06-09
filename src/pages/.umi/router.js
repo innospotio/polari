@@ -260,7 +260,7 @@ const routes = [
                 exact: true,
               },
               {
-                name: '高级表单',
+                name: 'advanced-form',
                 icon: 'smile',
                 path: '/form/advanced-form',
                 component: __IS_BROWSER
@@ -308,6 +308,50 @@ const routes = [
                         .default,
                     })
                   : require('../list/table-list').default,
+                exact: true,
+              },
+              {
+                name: 'basic-list',
+                icon: 'smile',
+                path: '/list/basic-list',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__list__basic-list__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/basic-list/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/basic-list'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../list/basic-list').default,
+                exact: true,
+              },
+              {
+                name: 'card-list',
+                icon: 'smile',
+                path: '/list/card-list',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__list__card-list__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/card-list/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/card-list'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../list/card-list').default,
                 exact: true,
               },
               {

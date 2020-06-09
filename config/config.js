@@ -171,7 +171,7 @@ export default {
                   component: './form/step-form',
                 },
                 {
-                  name: '高级表单',
+                  name: 'advanced-form',
                   icon: 'smile',
                   path: '/form/advanced-form',
                   component: './form/advanced-form',
@@ -189,7 +189,19 @@ export default {
                   path: '/list/table-list',
                   component: './list/table-list',
                 },
-              ]
+                {
+                  name: 'basic-list',
+                  icon: 'smile',
+                  path: '/list/basic-list',
+                  component: './list/basic-list',
+                },
+                {
+                  name: 'card-list',
+                  icon: 'smile',
+                  path: '/list/card-list',
+                  component: './list/card-list',
+                },
+              ],
             },
             {
               name: 'editor',

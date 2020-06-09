@@ -186,7 +186,7 @@ const TableList = () => {
             </a>{' '}
             项&nbsp;&nbsp;
             <span>
-              服务调用次数总计 {selectedRows.reduce((pre, item) => pre + item.callNo, 0)} 万
+              服务调用次数总计 {(selectedRows || []).reduce((pre, item) => pre + item.callNo, 0)} 万
             </span>
           </div>
         )}
