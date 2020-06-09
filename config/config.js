@@ -184,6 +184,35 @@ export default {
               name: 'list',
               routes: [
                 {
+                  path: '/list/search',
+                  name: 'search-list',
+                  component: './list/search',
+                  routes: [
+                    {
+                      path: '/list/search',
+                      redirect: '/list/search/articles',
+                    },
+                    {
+                      name: 'articles',
+                      icon: 'smile',
+                      path: '/list/search/articles',
+                      component: './list/search/articles',
+                    },
+                    {
+                      name: 'projects',
+                      icon: 'smile',
+                      path: '/list/search/projects',
+                      component: './list/search/projects',
+                    },
+                    {
+                      name: 'applications',
+                      icon: 'smile',
+                      path: '/list/search/applications',
+                      component: './list/search/applications',
+                    },
+                  ],
+                },
+                {
                   name: 'table-list',
                   icon: 'smile',
                   path: '/list/table-list',
@@ -200,6 +229,25 @@ export default {
                   icon: 'smile',
                   path: '/list/card-list',
                   component: './list/card-list',
+                },
+              ],
+            },
+            {
+              path: '/profile',
+              name: 'profile',
+              icon: 'profile',
+              routes: [
+                {
+                  name: 'basic',
+                  icon: 'smile',
+                  path: '/profile/basic',
+                  component: './profile/basic',
+                },
+                {
+                  name: 'advanced',
+                  icon: 'smile',
+                  path: '/profile/advanced',
+                  component: './profile/advanced',
                 },
               ],
             },
@@ -237,6 +285,7 @@ export default {
       "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'",
     'card-radius': '20px',
     'border-radius-base': '10px',
+    'table-row-hover-bg': '#E5EDFF',
   },
   //'./src/theme/blue.js',
   define: {

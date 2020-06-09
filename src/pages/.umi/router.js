@@ -297,6 +297,99 @@ const routes = [
             name: 'list',
             routes: [
               {
+                path: '/list/search',
+                name: 'search-list',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../list/search').default,
+                routes: [
+                  {
+                    path: '/list/search',
+                    redirect: '/list/search/articles',
+                    exact: true,
+                  },
+                  {
+                    name: 'articles',
+                    icon: 'smile',
+                    path: '/list/search/articles',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__search__articles__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/search/articles/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/articles'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/search/articles').default,
+                    exact: true,
+                  },
+                  {
+                    name: 'projects',
+                    icon: 'smile',
+                    path: '/list/search/projects',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__search__projects__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/search/projects/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/projects'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/search/projects').default,
+                    exact: true,
+                  },
+                  {
+                    name: 'applications',
+                    icon: 'smile',
+                    path: '/list/search/applications',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__search__applications__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/search/applications/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/applications'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/search/applications').default,
+                    exact: true,
+                  },
+                  {
+                    component: () =>
+                      React.createElement(
+                        require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                          .default,
+                        { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                      ),
+                  },
+                ],
+              },
+              {
                 name: 'table-list',
                 icon: 'smile',
                 path: '/list/table-list',
@@ -352,6 +445,65 @@ const routes = [
                         .default,
                     })
                   : require('../list/card-list').default,
+                exact: true,
+              },
+              {
+                component: () =>
+                  React.createElement(
+                    require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                      .default,
+                    { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                  ),
+              },
+            ],
+          },
+          {
+            path: '/profile',
+            name: 'profile',
+            icon: 'profile',
+            routes: [
+              {
+                name: 'basic',
+                icon: 'smile',
+                path: '/profile/basic',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__profile__basic__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/profile/basic/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../profile/basic'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../profile/basic').default,
+                exact: true,
+              },
+              {
+                name: 'advanced',
+                icon: 'smile',
+                path: '/profile/advanced',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      app: require('@tmp/dva').getApp(),
+                      models: () => [
+                        import(/* webpackChunkName: 'p__profile__advanced__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/profile/advanced/model.js').then(
+                          m => {
+                            return { namespace: 'model', ...m.default };
+                          },
+                        ),
+                      ],
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../profile/advanced'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../profile/advanced').default,
                 exact: true,
               },
               {
