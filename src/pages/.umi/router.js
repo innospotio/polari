@@ -390,6 +390,34 @@ const routes = [
                 ],
               },
               {
+                path: '/list/custom',
+                name: 'nice-list',
+                routes: [
+                  {
+                    name: 'normal',
+                    icon: 'smile',
+                    path: '/list/custom/normal',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/normal'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/custom/normal').default,
+                    exact: true,
+                  },
+                  {
+                    component: () =>
+                      React.createElement(
+                        require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                          .default,
+                        { pagesPath: 'src/pages', hasRoutesInConfig: true },
+                      ),
+                  },
+                ],
+              },
+              {
                 name: 'table-list',
                 icon: 'smile',
                 path: '/list/table-list',

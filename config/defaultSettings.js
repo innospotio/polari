@@ -1,5 +1,5 @@
 export default {
-  navTheme: 'dark',
+  navTheme: 'light',
   // 拂晓蓝
   primaryColor: '#1890ff',
   layout: 'sidemenu',
@@ -11,7 +11,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'Ant Design Pro',
+  title: 'Innospot',
   pwa: false,
   iconfontUrl: '',
 };

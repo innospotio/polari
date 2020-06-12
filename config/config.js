@@ -71,9 +71,8 @@ if (isAntDesignProPreview) {
       serverUrl: 'https://ant-design-pro.netlify.com',
     },
   ]);
-}
+} // plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
 
-plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
 export default {
   plugins,
   hash: true,
@@ -213,6 +212,16 @@ export default {
                   ],
                 },
                 {
+                  path: '/list/custom',
+                  name: 'nice-list',
+                  routes: [{
+                    name: 'normal',
+                    icon: 'smile',
+                    path: '/list/custom/normal',
+                    component: './list/custom/normal',
+                  }]
+                },
+                {
                   name: 'table-list',
                   icon: 'smile',
                   path: '/list/table-list',
@@ -286,6 +295,18 @@ export default {
     'card-radius': '20px',
     'border-radius-base': '10px',
     'table-row-hover-bg': '#E5EDFF',
+
+    'menu-item-color': '#595959',
+    'menu-item-font-size': '14px',
+    'menu-item-height': '50px',
+    'menu-item-active-bg': '#E5EDFF',
+    'menu-horizontal-line-height': '50px',
+
+    'height-lg': '38px',
+    'font-size-lg': '14px',
+
+    'layout-header-background': '#fff',
+    'layout-body-background': '#F6F8FF',
   },
   //'./src/theme/blue.js',
   define: {
