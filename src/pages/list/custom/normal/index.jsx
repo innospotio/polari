@@ -8,6 +8,7 @@ import {
   Dropdown
 } from 'antd';
 import {
+  PlusOutlined,
   CaretDownOutlined,
   FunnelPlotOutlined,
   UnorderedListOutlined
@@ -58,13 +59,21 @@ export default () => {
           </span>
         </Col>
         <Col span={12} className={styles.buttonWrap}>
-          <Button icon={<UnorderedListOutlined />} />
+          <Button>
+            List <UnorderedListOutlined />
+          </Button>
           <Button>
             Filter <FunnelPlotOutlined />
           </Button>
+          <Button icon={<PlusOutlined />} type="primary">
+            Add Ticket
+          </Button>
         </Col>
       </Row>
-      <NiceList/>
+
+      <div className={styles.listWrap}>
+        <NiceList/>
+      </div>
     </div>
   );
 };

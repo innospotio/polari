@@ -302,7 +302,7 @@ export default {
     'menu-item-active-bg': '#E5EDFF',
     'menu-horizontal-line-height': '50px',
 
-    'height-lg': '38px',
+    'height-base': '38px',
     'font-size-lg': '14px',
 
     'layout-header-background': '#fff',
