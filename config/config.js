@@ -219,6 +219,11 @@ export default {
                     icon: 'smile',
                     path: '/list/custom/normal',
                     component: './list/custom/normal',
+                  }, {
+                    name: 'simple',
+                    icon: 'smile',
+                    path: '/list/custom/simple',
+                    component: './list/custom/simple',
                   }]
                 },
                 {

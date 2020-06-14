@@ -8,10 +8,7 @@ import {
   Dropdown
 } from 'antd';
 import {
-  EditOutlined,
   PlusOutlined,
-  HeartOutlined,
-  DeleteOutlined,
   EllipsisOutlined,
   CaretDownOutlined,
   FunnelPlotOutlined,
@@ -48,6 +45,7 @@ const menu = (
 export default () => {
   const columns = [
     {
+      width: 180,
       title: 'REQUESTED BY',
       dataIndex: 'name',
       key: 'name',
@@ -61,6 +59,7 @@ export default () => {
       },
     },
     {
+      width: 80,
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
@@ -70,6 +69,7 @@ export default () => {
       title: 'SUBJECT',
       dataIndex: 'subject',
       key: 'subject',
+      ellipsis: true
     },
     {
       title: 'ASSIGNEE',
@@ -186,6 +186,72 @@ export default () => {
       status: 'Closed',
       date: '22 Oct 2016',
     },
+    {
+      id: '#7',
+      key: '1',
+      name: 'John Brown',
+      image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
+      subject: 'Mobile Campaign',
+      assignee: 'Claire',
+      priority: 'Low',
+      status: 'Open',
+      date: '22 Oct 2016',
+    },
+    {
+      id: '#5',
+      key: '2',
+      name: 'Jim Green',
+      image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
+      subject: 'I need help with adding a new contact data to be...',
+      assignee: 'Irma',
+      priority: 'Medium',
+      status: 'Closed',
+      date: '22 Oct 2016',
+    },
+    {
+      id: '#71',
+      key: '3',
+      name: 'Joe Black',
+      image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
+      subject: 'Mobile Campaign',
+      assignee: 'Judith',
+      priority: 'High',
+      status: 'Closed',
+      date: '22 Oct 2016',
+    },
+    {
+      id: '#7',
+      key: '1',
+      name: 'John Brown',
+      image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
+      subject: 'Mobile Campaign',
+      assignee: 'Claire',
+      priority: 'Low',
+      status: 'Open',
+      date: '22 Oct 2016',
+    },
+    {
+      id: '#5',
+      key: '2',
+      name: 'Jim Green',
+      image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
+      subject: 'I need help with adding a new contact data to be...',
+      assignee: 'Irma',
+      priority: 'Medium',
+      status: 'Closed',
+      date: '22 Oct 2016',
+    },
+    {
+      id: '#71',
+      key: '3',
+      name: 'Joe Black',
+      image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
+      subject: 'Mobile Campaign',
+      assignee: 'Judith',
+      priority: 'High',
+      status: 'Closed',
+      date: '22 Oct 2016',
+    },
   ];
 
   const rowSelection = {
@@ -197,21 +263,13 @@ export default () => {
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <a href="#">
-          <EditOutlined/> Edit Ticket
-        </a>
+        <a href="#">1st menu item</a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a href="#">
-          <DeleteOutlined/> Remove
-        </a>
+        <a href="#">2nd menu item</a>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="3">
-        <a href="#">
-          <HeartOutlined /> Mark as Favorite
-        </a>
-      </Menu.Item>
+      <Menu.Item key="3">3rd menu item</Menu.Item>
     </Menu>
   )
 
@@ -253,6 +311,7 @@ export default () => {
 
       <div className={styles.listWrap}>
         <NiceList
+          size="small"
           rowSelection={{
             type: 'checkbox',
             ...rowSelection,

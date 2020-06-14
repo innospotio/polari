@@ -28,6 +28,7 @@ export default {
   'menu.list.search-list': 'Search List',
   'menu.list.nice-list': 'Custom List',
   'menu.list.nice-list.normal': 'Normal List',
+  'menu.list.nice-list.simple': 'Simple List',
   'menu.list.search-list.articles': 'Search List(articles)',
   'menu.list.search-list.projects': 'Search List(projects)',
   'menu.list.search-list.applications': 'Search List(applications)',

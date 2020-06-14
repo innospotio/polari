@@ -408,6 +408,20 @@ const routes = [
                     exact: true,
                   },
                   {
+                    name: 'simple',
+                    icon: 'smile',
+                    path: '/list/custom/simple',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/simple'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/custom/simple').default,
+                    exact: true,
+                  },
+                  {
                     component: () =>
                       React.createElement(
                         require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')

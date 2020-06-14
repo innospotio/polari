@@ -4,43 +4,49 @@
 .niceList {
   margin-top: -16px;
 
+  &.small {
+    table {
+      border-spacing: 0 12px;
+    }
+
+    :global {
+      .ant-table {
+        background-color: transparent;
+
+        .ant-table-tbody > tr > td,
+        .ant-table-thead > tr > th {
+          height: 40px;
+
+          img {
+            width: 24px;
+            height: 24px;
+
+            &.ss {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   table {
     border-spacing: 0 16px;
     border-collapse: separate;
   }
 
-  .tag {
-    min-width: 52px;
-    height: 24px;
-    border-radius: 8px;
-    font-size: 12px;
-    display: inline-block;
-    padding: 0 8px;
-    line-height: 24px;
-    text-align: center;
-
-    &.gray {
-      color: #959EAD;
-      background-color: rgba(169,182,199,.25);
-    }
-
-    &.yellow {
-      color: #FCC465;
-      background-color: rgba(252,196,101,.2);
-    }
-
-    &.red {
-      color: #FF4445;
-      background-color: rgba(255,68,69,.2);
-    }
-
-    &.green {
-      color: #31CB8A;
-      background-color: rgba(49,203,138,.2);
-    }
-  }
-
   :global {
+    .ant-table-selection-column {
+      padding-left: 16px;
+      padding-right: 0;
+      text-align: left;
+    }
+
+    .ant-table-selection-col {
+      width: 40px;
+    }
+
     .ant-table {
       background-color: transparent;
 
@@ -49,6 +55,8 @@
         color: #262626;
         font-size: 14px;
         border-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
 
         &:first-child {
           border-top-left-radius: @border-radius-base;
@@ -67,19 +75,21 @@
             font-weight: 600;
             height: 48px;
             background: #EAECF5;
-            padding-top: 0;
-            padding-bottom: 0;
           }
         }
       }
 
       .ant-table-tbody {
         > tr {
+          &:hover {
+            > td {
+              background-color: @table-row-hover-bg;
+            }
+          }
+
           > td {
             height: 60px;
             background-color: #fff;
-            padding-top: 10px;
-            padding-bottom: 10px;
 
             img {
               width: 40px;
