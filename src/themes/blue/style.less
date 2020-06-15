@@ -2,12 +2,18 @@
 
 :global {
 
-  .ant-checkbox-inner {
-    border-radius: 2px;
+  .ant-checkbox {
+    .ant-checkbox-inner {
+      border-radius: 2px;
+
+      &::after {
+        display: inline-block;
+      }
+    }
   }
 
   .ant-pro-global-header {
-    box-shadow: 0px 1px 4px 0 rgba(0,21,41,0.12);
+    box-shadow: 0 1px 4px 0 rgba(0,21,41,0.12);
   }
 
   .ant-pro-sider-menu-logo img {
