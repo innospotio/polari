@@ -4,6 +4,7 @@ import {
   Row,
   Col,
   Menu,
+  Avatar,
   Button,
   Dropdown
 } from 'antd';
@@ -52,7 +53,7 @@ export default () => {
       render: (name, record) => {
         return (
           <>
-          <img src={record.image} alt=""/>
+          <Avatar size={24} src={record.image} />
           <span>{name}</span>
           </>
         )
@@ -78,7 +79,7 @@ export default () => {
       render: (value, record) => {
         return (
           <>
-          <img className="ss" src={record.image} />
+          <Avatar size={24} src={record.image} />
           <span>{value}</span>
           </>
         )

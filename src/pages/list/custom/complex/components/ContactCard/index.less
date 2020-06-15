@@ -1,0 +1,68 @@
+
+@import '~antd/lib/style/themes/default.less';
+
+.contactCard {
+  position: relative;
+  transition: box-shadow .2s ease;
+
+  .menu {
+    top: 16px;
+    right: 24px;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &.active,
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+    .menu {
+      visibility: visible;
+    }
+  }
+
+  :global {
+    .ant-card-meta-detail {
+      .ant-card-meta-title {
+        margin-bottom: 2px;
+        line-height: 1.1;
+      }
+
+      .ant-card-meta-description {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .tag {
+    clear: both;
+    margin-top: 40px;
+
+    :global {
+      .ant-tag {
+        color: @primary-color;
+        border-radius: 8px;
+        margin-right: 5px;
+        line-height: 24px;
+      }
+    }
+
+    .checkBox {
+      text-align: right;
+      padding-top: 2px;
+
+      :global {
+        .ant-checkbox-inner {
+          width: 24px;
+          height: 24px;
+
+          &::after {
+            left: 30%;
+            width: 7.714286px;
+            height: 12.142857px;
+          }
+        }
+      }
+    }
+  }
+}

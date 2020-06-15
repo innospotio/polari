@@ -28,6 +28,7 @@ export default {
   'menu.list.nice-list': '自定义列表',
   'menu.list.nice-list.normal': '常规列表',
   'menu.list.nice-list.simple': '简单列表',
+  'menu.list.nice-list.complex': '复杂列表',
   'menu.list.search-list': '搜索列表',
   'menu.list.search-list.articles': '搜索列表（文章）',
   'menu.list.search-list.projects': '搜索列表（项目）',

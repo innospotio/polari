@@ -12,6 +12,31 @@
 
 .listWrap {
   margin-top: 32px;
+
+  :global {
+    td {
+      .ant-card-meta {
+        &::before,
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    .ant-card-meta-avatar {
+      padding-right: 0;
+    }
+
+    .ant-card-meta-detail {
+      .ant-card-meta-title {
+        margin-bottom: 2px;
+      }
+
+      .ant-card-meta-description {
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .tag {
@@ -23,6 +48,11 @@
   padding: 0 8px;
   line-height: 24px;
   text-align: center;
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &.gray {
     color: #959EAD;

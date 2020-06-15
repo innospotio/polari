@@ -224,6 +224,11 @@ export default {
                     icon: 'smile',
                     path: '/list/custom/simple',
                     component: './list/custom/simple',
+                  }, {
+                    name: 'complex',
+                    icon: 'smile',
+                    path: '/list/custom/complex',
+                    component: './list/custom/complex',
                   }]
                 },
                 {
@@ -297,9 +302,15 @@ export default {
     'primary-color': '#155AFF',
     'font-family':
       "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Noto Color Emoji'",
-    'card-radius': '20px',
+
+    'text-color': '#262626',
+    'text-color-secondary': '#8C8C8C',
+
     'border-radius-base': '10px',
     'table-row-hover-bg': '#E5EDFF',
+
+    'card-radius': '20px',
+    'card-head-color': '#262626',
 
     'menu-item-color': '#595959',
     'menu-item-font-size': '14px',

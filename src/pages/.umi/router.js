@@ -422,6 +422,20 @@ const routes = [
                     exact: true,
                   },
                   {
+                    name: 'complex',
+                    icon: 'smile',
+                    path: '/list/custom/complex',
+                    component: __IS_BROWSER
+                      ? _dvaDynamic({
+                          component: () =>
+                            import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/complex'),
+                          LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                            .default,
+                        })
+                      : require('../list/custom/complex').default,
+                    exact: true,
+                  },
+                  {
                     component: () =>
                       React.createElement(
                         require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')

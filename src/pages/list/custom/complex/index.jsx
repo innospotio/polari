@@ -4,6 +4,7 @@ import {
   Row,
   Col,
   Menu,
+  Card,
   Button,
   Avatar,
   Dropdown
@@ -14,6 +15,7 @@ import {
   HeartOutlined,
   DeleteOutlined,
   EllipsisOutlined,
+  ContactsOutlined,
   CaretDownOutlined,
   FunnelPlotOutlined,
   UnorderedListOutlined
@@ -22,8 +24,11 @@ import {
 import {
   NiceList
 } from '../../../../components/nice';
+import ContactCard from './components/ContactCard'
 
 import styles from '../style.less';
+
+const { Meta } = Card
 
 const ps = {
   'Low': 'gray',
@@ -47,6 +52,10 @@ const menu = (
 )
 
 export default () => {
+  const [
+    pageType,
+    setPageType
+  ] = useState('list')
   const columns = [
     {
       title: 'REQUESTED BY',
@@ -54,10 +63,13 @@ export default () => {
       key: 'name',
       render: (name, record) => {
         return (
-          <>
-          <Avatar size={40} src={record.image} />
-          <span>{name}</span>
-          </>
+          <div>
+            <Meta
+              avatar={<Avatar size={40} src={record.image} />}
+              title={record.name}
+              description={record.email}
+            />
+          </div>
         )
       },
     },
@@ -86,19 +98,58 @@ export default () => {
       },
     },
     {
-      title: 'PRIORITY',
-      dataIndex: 'priority',
-      key: 'priority',
-      render: value => {
-        return <span className={[styles.tag, styles[ps[value]]].join(' ')}>{value}</span>
-      }
-    },
-    {
-      title: 'STATUS',
-      dataIndex: 'status',
-      key: 'status',
-      render: value => {
-        return <span className={[styles.tag, styles[ps[value]]].join(' ')}>{value}</span>
+      title: 'TAGS',
+      dataIndex: 'tags',
+      key: 'tags',
+      render: tags => {
+        let tagMenu
+        const nts = (tags || []).slice(0, 2)
+
+        if (nts.length < tags.length) {
+          nts.push('...')
+
+          const sts = tags.slice(2)
+
+          tagMenu = (
+            <div
+              style={{padding: '24px 24px 12px', maxWidth: 240}}
+              className="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical">
+              {
+                sts.map((tag, index) => (
+                  <span
+                    style={{minWidth: 'auto', marginBottom: 12}}
+                    key={[tag, index].join('-')}
+                    className={[styles.tag, styles.gray].join(' ')}
+                  >{tag}</span>
+                ))
+              }
+            </div>
+          )
+        }
+
+        return nts.map((tag, index) => {
+          return (
+            <span
+              style={{minWidth: 'auto'}}
+              key={[tag, index].join('-')}
+              className={[styles.tag, styles.gray].join(' ')}
+            >
+              {
+                tag === '...' ? (
+                <Dropdown
+                  overlay={tagMenu}
+                  trigger={['click']}
+                  placement="bottomRight"
+                >
+                  <a onClick={e => e.preventDefault()}>
+                    <EllipsisOutlined style={{fontSize: '12px', color: '#959EAD'}} />
+                  </a>
+                </Dropdown>
+                ) : tag
+              }
+            </span>
+          )
+        })
       }
     },
     {
@@ -119,29 +170,32 @@ export default () => {
       ),
     },
   ];
-
   const data = [
     {
       id: '#7',
       key: '1',
       name: 'John Brown',
+      email: 'ckctm12@gmail.com',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
       assignee: 'Claire',
       priority: 'Low',
       status: 'Open',
       date: '22 Oct 2016',
+      tags: ['test tag', 'another tag', 'something tag', 'test tag', 'another tag', 'something tag']
     },
     {
       id: '#5',
       key: '2',
       name: 'Jim Green',
+      email: 'nvt.isst.nute@gmail.com',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
       assignee: 'Irma',
       priority: 'Medium',
       status: 'Closed',
       date: '22 Oct 2016',
+      tags: ['another tag', 'something tag']
     },
     {
       id: '#71',
@@ -153,39 +207,46 @@ export default () => {
       priority: 'High',
       status: 'Closed',
       date: '22 Oct 2016',
+      tags: ['test tag', 'another tag', 'something tag']
     },
     {
       id: '#7',
       key: '1',
       name: 'John Brown',
+      email: 'thuhang.nute@gmail.com',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
       assignee: 'Claire',
       priority: 'Low',
       status: 'Open',
       date: '22 Oct 2016',
+      tags: ['test tag', 'another tag']
     },
     {
       id: '#5',
       key: '2',
       name: 'Jim Green',
+      email: 'tranthuy.nute@gmail.com',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
       assignee: 'Irma',
       priority: 'Medium',
       status: 'Closed',
       date: '22 Oct 2016',
+      tags: ['test tag', 'another tag', 'something tag']
     },
     {
       id: '#71',
       key: '3',
       name: 'Joe Black',
+      email: 'binhan628@gmail.com',
       image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
       subject: 'Mobile Campaign',
       assignee: 'Judith',
       priority: 'High',
       status: 'Closed',
       date: '22 Oct 2016',
+      tags: ['test tag', 'another tag', 'something tag']
     },
   ];
 
@@ -240,9 +301,17 @@ export default () => {
           </span>
         </Col>
         <Col span={12} className={styles.buttonWrap}>
-          <Button>
-            List <UnorderedListOutlined />
-          </Button>
+          {
+            pageType === 'list' ? (
+              <Button onClick={() => setPageType('card')}>
+                Card <ContactsOutlined />
+              </Button>
+            ) : (
+              <Button onClick={() => setPageType('list')}>
+                List <UnorderedListOutlined />
+              </Button>
+            )
+          }
           <Button>
             Filter <FunnelPlotOutlined />
           </Button>
@@ -253,14 +322,33 @@ export default () => {
       </Row>
 
       <div className={styles.listWrap}>
-        <NiceList
-          rowSelection={{
-            type: 'checkbox',
-            ...rowSelection,
-          }}
-          columns={columns}
-          dataSource={data}
-        />
+        {
+          pageType === 'list' ? (
+            <NiceList
+              rowSelection={{
+                type: 'checkbox',
+                ...rowSelection,
+              }}
+              columns={columns}
+              dataSource={data}
+            />
+          ) : (
+            <Row gutter={[24, 24]}>
+              {
+                data.map((item, index) => {
+                  return (
+                    <Col key={['d', 'ContactCard', index].join('-')} span={8}>
+                      <ContactCard
+                        data={item}
+                        menu={menu}
+                      />
+                    </Col>
+                  )
+                })
+              }
+            </Row>
+          )
+        }
       </div>
     </div>
   );
