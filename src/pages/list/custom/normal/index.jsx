@@ -13,6 +13,8 @@ import {
   PlusOutlined,
   HeartOutlined,
   DeleteOutlined,
+  ReloadOutlined,
+  SettingOutlined,
   EllipsisOutlined,
   CaretDownOutlined,
   FunnelPlotOutlined,
@@ -22,6 +24,7 @@ import {
 import {
   NiceList
 } from '../../../../components/nice';
+import Filter from '../components/Filter'
 
 import styles from '../style.less';
 
@@ -218,36 +221,50 @@ export default () => {
 
   return (
     <div>
-      <Row>
-        <Col span={12} className={styles.filterWrap}>
-          <span className={styles.filter}>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.filterButton} onClick={e => e.preventDefault()}>
-                All Tickets <CaretDownOutlined style={{fontSize: 10, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
-          <span className={styles.page}>
-            10 Total
-          </span>
-          <span className={styles.sort}>
-            <span>Sort by: </span>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.sortButton} onClick={e => e.preventDefault()}>
-                Date Created <CaretDownOutlined style={{fontSize: 8, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
+      <Row className={styles.filter}>
+        <Col span={24}>
+          <p className={styles.title}>All Tickets</p>
         </Col>
+        <Col span={24} className={styles.filterWrap}>
+          <Filter/>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={12}>
+          <p className={styles.title}>查询表格</p>
+        </Col>
+        {/*<Col span={12} className={styles.filterWrap}>*/}
+          {/*<span className={styles.filter}>*/}
+            {/*<Dropdown overlay={menu} trigger={['click']}>*/}
+              {/*<a className={styles.filterButton} onClick={e => e.preventDefault()}>*/}
+                {/*All Tickets <CaretDownOutlined style={{fontSize: 10, color: '#999'}} />*/}
+              {/*</a>*/}
+            {/*</Dropdown>*/}
+          {/*</span>*/}
+          {/*<span className={styles.page}>*/}
+            {/*10 Total*/}
+          {/*</span>*/}
+          {/*<span className={styles.sort}>*/}
+            {/*<span>Sort by: </span>*/}
+            {/*<Dropdown overlay={menu} trigger={['click']}>*/}
+              {/*<a className={styles.sortButton} onClick={e => e.preventDefault()}>*/}
+                {/*Date Created <CaretDownOutlined style={{fontSize: 8, color: '#999'}} />*/}
+              {/*</a>*/}
+            {/*</Dropdown>*/}
+          {/*</span>*/}
+        {/*</Col>*/}
         <Col span={12} className={styles.buttonWrap}>
           <Button>
-            List <UnorderedListOutlined />
+            <UnorderedListOutlined /> List View
           </Button>
           <Button>
-            Filter <FunnelPlotOutlined />
+            <ReloadOutlined /> Refresh
+          </Button>
+          <Button>
+            <SettingOutlined /> Setting
           </Button>
           <Button icon={<PlusOutlined />} type="primary">
-            Add Ticket
+            Add Item
           </Button>
         </Col>
       </Row>

@@ -5,15 +5,19 @@ import {
   Col,
   Menu,
   Card,
+  Table,
   Button,
   Avatar,
   Dropdown
 } from 'antd';
 import {
+  DownOutlined,
   EditOutlined,
   PlusOutlined,
   HeartOutlined,
   DeleteOutlined,
+  ReloadOutlined,
+  SettingOutlined,
   EllipsisOutlined,
   ContactsOutlined,
   CaretDownOutlined,
@@ -25,18 +29,10 @@ import {
   NiceList
 } from '../../../../components/nice';
 import ContactCard from './components/ContactCard'
+import Filter from '../components/Filter'
 
 import styles from '../style.less';
-
 const { Meta } = Card
-
-const ps = {
-  'Low': 'gray',
-  'Medium': 'yellow',
-  'High': 'red',
-  'Open': 'green',
-  'Closed': 'gray',
-}
 
 const menu = (
   <Menu>
@@ -251,6 +247,10 @@ export default () => {
   ];
 
   const rowSelection = {
+    selections: [
+      Table.SELECTION_ALL,
+      Table.SELECTION_INVERT
+    ],
     onChange: (selectedRowKeys, selectedRows) => {
       console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
     }
@@ -279,44 +279,43 @@ export default () => {
 
   return (
     <div>
-      <Row>
-        <Col span={12} className={styles.filterWrap}>
-          <span className={styles.filter}>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.filterButton} onClick={e => e.preventDefault()}>
-                All Tickets <CaretDownOutlined style={{fontSize: 10, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
-          <span className={styles.page}>
-            10 Total
-          </span>
-          <span className={styles.sort}>
-            <span>Sort by: </span>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.sortButton} onClick={e => e.preventDefault()}>
-                Date Created <CaretDownOutlined style={{fontSize: 8, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
+      <Row className={styles.filter}>
+        <Col span={24}>
+          <p className={styles.title}>All Tickets</p>
         </Col>
-        <Col span={12} className={styles.buttonWrap}>
+        <Col span={24} className={styles.filterWrap}>
+          <Filter/>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={6}>
+          <p className={styles.title}>查询表格</p>
+        </Col>
+        <Col span={18} className={styles.buttonWrap}>
+          <Dropdown overlay={menu}>
+            <Button>
+              Bulk Edit <DownOutlined />
+            </Button>
+          </Dropdown>
           {
             pageType === 'list' ? (
               <Button onClick={() => setPageType('card')}>
-                Card <ContactsOutlined />
+                <ContactsOutlined /> Card View
               </Button>
             ) : (
               <Button onClick={() => setPageType('list')}>
-                List <UnorderedListOutlined />
+                <UnorderedListOutlined /> List View
               </Button>
             )
           }
           <Button>
-            Filter <FunnelPlotOutlined />
+            <ReloadOutlined /> Refresh
+          </Button>
+          <Button>
+            <SettingOutlined /> Setting
           </Button>
           <Button icon={<PlusOutlined />} type="primary">
-            Add Ticket
+            Add Item
           </Button>
         </Col>
       </Row>

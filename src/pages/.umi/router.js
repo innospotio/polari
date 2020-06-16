@@ -563,6 +563,20 @@ const routes = [
                 exact: true,
               },
               {
+                name: 'user',
+                icon: 'smile',
+                path: '/profile/user',
+                component: __IS_BROWSER
+                  ? _dvaDynamic({
+                      component: () =>
+                        import(/* webpackChunkName: "layouts__BasicLayout" */ '../profile/user'),
+                      LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                        .default,
+                    })
+                  : require('../profile/user').default,
+                exact: true,
+              },
+              {
                 component: () =>
                   React.createElement(
                     require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')

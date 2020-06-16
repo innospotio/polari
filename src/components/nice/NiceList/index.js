@@ -15,7 +15,9 @@ const NiceList = (props) => {
     <div className={[styles.niceList, (size ? styles[size] : '')].join(' ')}>
       <Table
         {...rest}
-        pagination={false}
+        pagination={{
+          showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`
+        }}
       />
     </div>
   )

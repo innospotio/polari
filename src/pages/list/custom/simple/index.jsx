@@ -10,6 +10,8 @@ import {
 } from 'antd';
 import {
   PlusOutlined,
+  ReloadOutlined,
+  SettingOutlined,
   EllipsisOutlined,
   CaretDownOutlined,
   FunnelPlotOutlined,
@@ -19,6 +21,7 @@ import {
 import {
   NiceList
 } from '../../../../components/nice';
+import Filter from '../components/Filter'
 
 import styles from '../style.less';
 
@@ -60,10 +63,11 @@ export default () => {
       },
     },
     {
-      width: 80,
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      width: 140,
+      title: 'LEAD SCORE',
+      dataIndex: 'score',
+      key: 'score',
+      sorter: (a, b) => a.score - b.score
     },
     {
       width: 220,
@@ -102,11 +106,6 @@ export default () => {
       }
     },
     {
-      title: 'DATE',
-      key: 'date',
-      dataIndex: 'date'
-    },
-    {
       title: 'EDIT',
       key: 'edit',
       align: 'center',
@@ -124,6 +123,7 @@ export default () => {
     {
       id: '#7',
       key: '1',
+      score: 12,
       name: 'John Brown',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
@@ -135,6 +135,7 @@ export default () => {
     {
       id: '#5',
       key: '2',
+      score: 13,
       name: 'Jim Green',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
@@ -146,6 +147,7 @@ export default () => {
     {
       id: '#71',
       key: '3',
+      score: 14,
       name: 'Joe Black',
       image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
       subject: 'Mobile Campaign',
@@ -157,6 +159,7 @@ export default () => {
     {
       id: '#7',
       key: '1',
+      score: 15,
       name: 'John Brown',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
@@ -168,6 +171,7 @@ export default () => {
     {
       id: '#5',
       key: '2',
+      score: 16,
       name: 'Jim Green',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
@@ -179,6 +183,7 @@ export default () => {
     {
       id: '#71',
       key: '3',
+      score: 17,
       name: 'Joe Black',
       image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
       subject: 'Mobile Campaign',
@@ -190,6 +195,7 @@ export default () => {
     {
       id: '#7',
       key: '1',
+      score: 18,
       name: 'John Brown',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
@@ -201,6 +207,7 @@ export default () => {
     {
       id: '#5',
       key: '2',
+      score: 19,
       name: 'Jim Green',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
@@ -212,6 +219,7 @@ export default () => {
     {
       id: '#71',
       key: '3',
+      score: 20,
       name: 'Joe Black',
       image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
       subject: 'Mobile Campaign',
@@ -223,6 +231,7 @@ export default () => {
     {
       id: '#7',
       key: '1',
+      score: 21,
       name: 'John Brown',
       image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
       subject: 'Mobile Campaign',
@@ -234,6 +243,7 @@ export default () => {
     {
       id: '#5',
       key: '2',
+      score: 22,
       name: 'Jim Green',
       image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
       subject: 'I need help with adding a new contact data to be...',
@@ -245,6 +255,7 @@ export default () => {
     {
       id: '#71',
       key: '3',
+      score: 23,
       name: 'Joe Black',
       image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
       subject: 'Mobile Campaign',
@@ -276,36 +287,50 @@ export default () => {
 
   return (
     <div>
-      <Row>
-        <Col span={12} className={styles.filterWrap}>
-          <span className={styles.filter}>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.filterButton} onClick={e => e.preventDefault()}>
-                All Tickets <CaretDownOutlined style={{fontSize: 10, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
-          <span className={styles.page}>
-            10 Total
-          </span>
-          <span className={styles.sort}>
-            <span>Sort by: </span>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className={styles.sortButton} onClick={e => e.preventDefault()}>
-                Date Created <CaretDownOutlined style={{fontSize: 8, color: '#999'}} />
-              </a>
-            </Dropdown>
-          </span>
+      <Row className={styles.filter}>
+        <Col span={24}>
+          <p className={styles.title}>All Tickets</p>
         </Col>
+        <Col span={24} className={styles.filterWrap}>
+          <Filter/>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={12}>
+          <p className={styles.title}>查询表格</p>
+        </Col>
+        {/*<Col span={12} className={styles.filterWrap}>*/}
+        {/*<span className={styles.filter}>*/}
+        {/*<Dropdown overlay={menu} trigger={['click']}>*/}
+        {/*<a className={styles.filterButton} onClick={e => e.preventDefault()}>*/}
+        {/*All Tickets <CaretDownOutlined style={{fontSize: 10, color: '#999'}} />*/}
+        {/*</a>*/}
+        {/*</Dropdown>*/}
+        {/*</span>*/}
+        {/*<span className={styles.page}>*/}
+        {/*10 Total*/}
+        {/*</span>*/}
+        {/*<span className={styles.sort}>*/}
+        {/*<span>Sort by: </span>*/}
+        {/*<Dropdown overlay={menu} trigger={['click']}>*/}
+        {/*<a className={styles.sortButton} onClick={e => e.preventDefault()}>*/}
+        {/*Date Created <CaretDownOutlined style={{fontSize: 8, color: '#999'}} />*/}
+        {/*</a>*/}
+        {/*</Dropdown>*/}
+        {/*</span>*/}
+        {/*</Col>*/}
         <Col span={12} className={styles.buttonWrap}>
           <Button>
-            List <UnorderedListOutlined />
+            <UnorderedListOutlined /> List View
           </Button>
           <Button>
-            Filter <FunnelPlotOutlined />
+            <ReloadOutlined /> Refresh
+          </Button>
+          <Button>
+            <SettingOutlined /> Setting
           </Button>
           <Button icon={<PlusOutlined />} type="primary">
-            Add Ticket
+            Add Item
           </Button>
         </Col>
       </Row>
@@ -319,6 +344,7 @@ export default () => {
           }}
           columns={columns}
           dataSource={data}
+          sortDirections={['descend']}
         />
       </div>
     </div>

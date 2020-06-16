@@ -268,6 +268,12 @@ export default {
                   path: '/profile/advanced',
                   component: './profile/advanced',
                 },
+                {
+                  name: 'user',
+                  icon: 'smile',
+                  path: '/profile/user',
+                  component: './profile/user',
+                },
               ],
             },
             {
@@ -318,7 +324,11 @@ export default {
     'menu-item-active-bg': '#E5EDFF',
     'menu-horizontal-line-height': '50px',
 
-    'height-base': '38px',
+    'select-selection-item-bg': '#E5EDFF',
+    'select-selection-item-border-color': 'transparent',
+
+    'btn-height-base': '38px',
+    'input-height-base': '48px',
     'font-size-lg': '14px',
 
     'layout-header-background': '#fff',
