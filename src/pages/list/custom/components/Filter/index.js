@@ -111,6 +111,7 @@ const Filter = () => {
             <div style={{ marginTop: 8 }}>
               <Button
                 style={{ margin: '0 8px' }}
+                className="bordered"
                 onClick={() => {
                   form.resetFields();
                 }}

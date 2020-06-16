@@ -11,6 +11,9 @@ import {
   CaretRightOutlined
 } from '@ant-design/icons'
 
+import DetailCard from './components/DetailCard'
+import UserProfileCard from './components/UserProfile'
+
 import styles from './index.less'
 
 const UserProfile = () => {
@@ -35,6 +38,16 @@ const UserProfile = () => {
           </Button>
         </Col>
       </Row>
+      <div className={styles.contentWrap}>
+        <Row gutter={[24, 24]}>
+          <Col flex="362px">
+            <UserProfileCard/>
+          </Col>
+          <Col flex="auto">
+            <DetailCard/>
+          </Col>
+        </Row>
+      </div>
     </div>
   )
 }

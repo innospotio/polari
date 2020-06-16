@@ -327,6 +327,11 @@ export default {
     'select-selection-item-bg': '#E5EDFF',
     'select-selection-item-border-color': 'transparent',
 
+    'rate-star-color': '#FCC465',
+
+    'border-color-split': '#E8E8E8',
+
+    'btn-default-border': 'transparent',
     'btn-height-base': '38px',
     'input-height-base': '48px',
     'font-size-lg': '14px',
