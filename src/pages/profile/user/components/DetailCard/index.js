@@ -1,33 +1,43 @@
 
-
+import React, { useState, useEffect } from 'react';
 import {
   Row,
   Col,
   Card
 } from 'antd';
+import Notes from './Notes'
+import Deals from './Deals'
+import Timeline from './Timeline'
 
 import styles from './index.less'
 
 const tabList = [
   {
-    key: 'Timeline',
+    key: 'timeline',
     tab: 'Timeline',
   }, {
-    key: 'Notes',
+    key: 'notes',
     tab: 'Notes',
   }, {
-    key: 'Events',
+    key: 'nvents',
     tab: 'Events',
   }, {
-    key: 'Tasks',
+    key: 'tasks',
     tab: 'Tasks',
   }, {
-    key: 'Deals',
+    key: 'deals',
     tab: 'Deals',
   }
 ]
 
 const DetailCard = () => {
+  const [tabKey, setTabKey] = useState('deals')
+
+  const contentList = {
+    timeline: <Timeline/>,
+    notes: <Notes/>,
+    deals: <Deals/>,
+  }
 
   return (
     <Card
@@ -35,9 +45,13 @@ const DetailCard = () => {
       tabList={tabList}
       style={{height: 984}}
       className={styles.detailCard}
+      activeTabKey={tabKey}
+      onTabChange={key => {
+        setTabKey(key)
+      }}
     >
       <div className={styles.cardInner}>
-        aaa
+        { contentList[tabKey] }
       </div>
     </Card>
   )

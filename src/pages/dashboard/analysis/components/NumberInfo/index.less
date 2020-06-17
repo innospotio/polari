@@ -1,4 +1,5 @@
-@import '../../../../../../node_modules/antd/es/style/themes/default.less';
+@import '~antd/es/style/themes/default.less';
+@import "../../../../../themes/vars.less";
 
 .numberInfo {
   .suffix {
@@ -62,11 +63,11 @@
 .numberInfolight {
   .numberInfoValue {
     & > span {
-      color: #8C8C8C;
+      color: @text-color-3;
     }
   }
 
   .numberInfoTitle {
-    color: #595959;
+    color: @text-color-2;
   }
 }
