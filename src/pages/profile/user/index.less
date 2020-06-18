@@ -1,4 +1,6 @@
 
+@import "../../../themes/vars.less";
+
 .userProfileWrap {
   padding-top: 6px;
 
@@ -22,5 +24,73 @@
 
   .contentWrap {
     margin-top: 24px;
+  }
+}
+
+.addCard,
+.contactCard {
+
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.addCard {
+  height: 154px;
+  cursor: pointer;
+  border-style: dashed;
+  border-color: #BFBFBF;
+  color: @primary-color;
+  text-align: center;
+
+  :global {
+    .ant-row {
+      height: 106px
+    }
+  }
+
+  p {
+    margin: 12px 0 0;
+  }
+}
+
+.contactCard {
+  position: relative;
+  transition: box-shadow .2s ease;
+
+  .menu {
+    top: 16px;
+    right: 24px;
+    position: absolute;
+  }
+
+  :global {
+    .ant-card-meta-detail {
+      .ant-card-meta-title {
+        margin-bottom: 2px;
+        line-height: 1.1;
+      }
+
+      .ant-card-meta-description {
+        font-size: 12px;
+      }
+    }
+
+    .ant-card-meta-avatar {
+      padding-right: 8px;
+    }
+  }
+
+  .bottom {
+    margin-top: 28px;
+
+    .title {
+      color: @text-color-2;
+      margin-bottom: 0px;
+    }
+
+    > a {
+      font-size: 12px;
+    }
   }
 }

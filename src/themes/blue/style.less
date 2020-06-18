@@ -53,12 +53,26 @@
     }
   }
 
-  .ant-checkbox {
+  .ant-checkbox-wrapper {
     .ant-checkbox-inner {
       border-radius: 2px;
 
       &::after {
         display: inline-block;
+      }
+    }
+
+    &.large {
+      .ant-checkbox-inner {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+
+        &::after {
+          left: 28%;
+          width: 7.714286px;
+          height: 12.142857px;
+        }
       }
     }
   }

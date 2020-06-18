@@ -58,7 +58,7 @@ const ContactCard = (props) => {
             }
           </Col>
           <Col span={2} className={styles.checkBox}>
-            <Checkbox/>
+            <Checkbox className="large" />
           </Col>
         </Row>
       </div>

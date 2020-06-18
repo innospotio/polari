@@ -5,6 +5,7 @@ import {
   Col,
   Card
 } from 'antd';
+import Tasks from './Tasks'
 import Notes from './Notes'
 import Deals from './Deals'
 import Timeline from './Timeline'
@@ -19,9 +20,6 @@ const tabList = [
     key: 'notes',
     tab: 'Notes',
   }, {
-    key: 'nvents',
-    tab: 'Events',
-  }, {
     key: 'tasks',
     tab: 'Tasks',
   }, {
@@ -31,19 +29,20 @@ const tabList = [
 ]
 
 const DetailCard = () => {
-  const [tabKey, setTabKey] = useState('deals')
+  const [tabKey, setTabKey] = useState('timeline')
 
   const contentList = {
     timeline: <Timeline/>,
     notes: <Notes/>,
     deals: <Deals/>,
+    tasks: <Tasks/>,
   }
 
   return (
     <Card
       bordered={false}
       tabList={tabList}
-      style={{height: 984}}
+      style={{height: 948}}
       className={styles.detailCard}
       activeTabKey={tabKey}
       onTabChange={key => {

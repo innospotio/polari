@@ -1,0 +1,59 @@
+
+@import "../../../../../../themes/vars.less";
+
+.block {
+  margin: 32px 0 0;
+  position: relative;
+
+  :global {
+    .ant-typography.ant-typography-danger {
+      color: @red-color;
+    }
+  }
+
+  .circle {
+    width: 4px;
+    height: 4px;
+    margin: 0 8px;
+    font-size: 4px;
+    line-height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #C4C4C4;
+  }
+
+  .action {
+    width: 40px;
+    float: left;
+  }
+
+  .pic {
+    width: 58px;
+    float: left;
+    margin-left: 16px;
+  }
+
+  .title {
+    color: @text-color-3;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .content {
+    max-width: 580px;
+  }
+
+  .desc {
+    margin-bottom: 4px;
+
+    del {
+      color: @text-color-2;
+    }
+  }
+
+  .time {
+    font-size: 12px;
+    color: @text-color-3;
+  }
+}
