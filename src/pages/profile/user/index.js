@@ -68,7 +68,7 @@ const UserProfile = () => {
           <Col span={8}>
             <UserProfileCard/>
           </Col>
-          <Col flex="auto">
+          <Col span={16}>
             <DetailCard/>
           </Col>
         </Row>
