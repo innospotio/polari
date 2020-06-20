@@ -90,6 +90,21 @@ export default {
           path: '/user/login',
           component: './user/login',
         },
+        {
+          name: 'login',
+          path: '/user/login2',
+          component: './user/login2',
+        },
+        {
+          name: 'register',
+          path: '/user/register',
+          component: './user/register',
+        },
+        {
+          name: 'register',
+          path: '/user/register2',
+          component: './user/register2',
+        },
       ],
     },
     {
@@ -334,7 +349,10 @@ export default {
     'border-color-split': '#E8E8E8',
 
     'btn-default-border': 'transparent',
+    'btn-height-lg': '48px',
     'btn-height-base': '38px',
+    'btn-font-size-lg': '16px',
+
     'input-height-base': '48px',
     'font-size-lg': '14px',
 

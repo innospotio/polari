@@ -39,6 +39,45 @@ const routes = [
         exact: true,
       },
       {
+        name: 'login',
+        path: '/user/login2',
+        component: __IS_BROWSER
+          ? _dvaDynamic({
+              component: () =>
+                import(/* webpackChunkName: "p__user__login2" */ '../user/login2'),
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                .default,
+            })
+          : require('../user/login2').default,
+        exact: true,
+      },
+      {
+        name: 'register',
+        path: '/user/register',
+        component: __IS_BROWSER
+          ? _dvaDynamic({
+              component: () =>
+                import(/* webpackChunkName: "p__user__register" */ '../user/register'),
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                .default,
+            })
+          : require('../user/register').default,
+        exact: true,
+      },
+      {
+        name: 'register',
+        path: '/user/register2',
+        component: __IS_BROWSER
+          ? _dvaDynamic({
+              component: () =>
+                import(/* webpackChunkName: "p__user__register2" */ '../user/register2'),
+              LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
+                .default,
+            })
+          : require('../user/register2').default,
+        exact: true,
+      },
+      {
         component: () =>
           React.createElement(
             require('/Users/mdsftjoin/Documents/workspace/polari/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
