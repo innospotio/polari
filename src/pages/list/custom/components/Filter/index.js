@@ -10,6 +10,7 @@ import {
   DatePicker
 } from 'antd';
 import { DownOutlined, UpOutlined } from '@ant-design/icons'
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 
 const { RangePicker } = DatePicker;
 
@@ -35,24 +36,23 @@ const options = [{
 
 const formList = [{
   type: 'select',
-  label: 'Assignees',
-  placeholder: 'Search Assignees'
+  label: formatMessage({ id: 'list.custom.normal.form.assignees' }),
+  placeholder: formatMessage({ id: 'list.custom.normal.form.placeholder.assignees' })
 }, {
   type: 'select',
-  label: 'Status',
-  placeholder: 'Search Status'
+  label: formatMessage({ id: 'list.custom.normal.form.status' }),
+  placeholder: formatMessage({ id: 'list.custom.normal.form.placeholder.status' })
 }, {
   type: 'select',
-  label: 'Type',
-  placeholder: 'Search Type'
+  label: formatMessage({ id: 'list.custom.normal.form.type' }),
+  placeholder: formatMessage({ id: 'list.custom.normal.form.placeholder.type' })
 }, {
   type: 'multiSelect',
-  label: 'Labels',
-  placeholder: 'Search Labels'
+  label: formatMessage({ id: 'list.custom.normal.form.labels' }),
+  placeholder: formatMessage({ id: 'list.custom.normal.form.placeholder.labels' })
 }, {
   type: 'date',
-  label: 'Date',
-  placeholder: 'Created Date ～ Due Date'
+  label: formatMessage({ id: 'list.custom.normal.form.date' })
 }]
 
 const Filter = () => {
@@ -116,10 +116,10 @@ const Filter = () => {
                   form.resetFields();
                 }}
               >
-                Reset
+                <FormattedMessage id="list.custom.normal.form.reset" />
               </Button>
               <Button type="primary" htmlType="submit">
-                Search
+                <FormattedMessage id="list.custom.normal.form.search" />
               </Button>
               <a
                 style={{ fontSize: 12, marginLeft: 12 }}

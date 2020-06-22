@@ -97,6 +97,8 @@ const BasicLayout = props => {
       pathname: '/',
     },
   } = props;
+
+  console.info(props)
   /**
    * constructor
    */

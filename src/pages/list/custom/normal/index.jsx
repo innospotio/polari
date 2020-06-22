@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import {
   Row,
   Col,
@@ -202,18 +203,18 @@ export default () => {
     <Menu>
       <Menu.Item key="0">
         <a href="#">
-          <EditOutlined/> Edit Ticket
+          <EditOutlined/> { formatMessage({ id: 'list.custom.normal.menu.editTicket' }) }
         </a>
       </Menu.Item>
       <Menu.Item key="1">
         <a href="#">
-          <DeleteOutlined/> Remove
+          <DeleteOutlined/> { formatMessage({ id: 'list.custom.normal.menu.remove' }) }
         </a>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="3">
         <a href="#">
-          <HeartOutlined /> Mark as Favorite
+          <HeartOutlined /> { formatMessage({ id: 'list.custom.normal.menu.favorite' }) }
         </a>
       </Menu.Item>
     </Menu>
@@ -223,7 +224,11 @@ export default () => {
     <div>
       <Row className={styles.filter}>
         <Col span={24}>
-          <p className={styles.title}>All Tickets</p>
+          <p className={styles.title}>
+            <FormattedMessage
+              id="list.custom.normal.allTickets"
+            />
+          </p>
         </Col>
         <Col span={24} className={styles.filterWrap}>
           <Filter/>
@@ -231,7 +236,11 @@ export default () => {
       </Row>
       <Row>
         <Col span={12}>
-          <p className={styles.title}>查询表格</p>
+          <p className={styles.title}>
+            <FormattedMessage
+              id="list.custom.normal.queryTable"
+            />
+          </p>
         </Col>
         {/*<Col span={12} className={styles.filterWrap}>*/}
           {/*<span className={styles.filter}>*/}
@@ -255,16 +264,16 @@ export default () => {
         {/*</Col>*/}
         <Col span={12} className={styles.buttonWrap}>
           <Button>
-            <UnorderedListOutlined /> List View
+            <UnorderedListOutlined /> { formatMessage({ id: 'list.custom.normal.listView' }) }
           </Button>
           <Button>
-            <ReloadOutlined /> Refresh
+            <ReloadOutlined /> { formatMessage({ id: 'list.custom.normal.refresh' }) }
           </Button>
           <Button>
-            <SettingOutlined /> Setting
+            <SettingOutlined /> { formatMessage({ id: 'list.custom.normal.setting' }) }
           </Button>
           <Button icon={<PlusOutlined />} type="primary">
-            Add Item
+            { formatMessage({ id: 'list.custom.normal.addItem' }) }
           </Button>
         </Col>
       </Row>
