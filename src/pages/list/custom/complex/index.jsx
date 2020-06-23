@@ -1,6 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
+import { connect } from 'dva';
+import {
+  FormattedMessage,
+  formatMessage,
+  getLocale
+} from 'umi-plugin-react/locale';
 import {
   Row,
   Col,
@@ -35,24 +40,12 @@ import Filter from '../components/Filter'
 import styles from '../style.less';
 const { Meta } = Card
 
-const menu = (
-  <Menu>
-    <Menu.Item key="0">
-      <a href="#">1st menu item</a>
-    </Menu.Item>
-    <Menu.Item key="1">
-      <a href="#">2nd menu item</a>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3">3rd menu item</Menu.Item>
-  </Menu>
-)
-
-export default () => {
+const ComplexList = ({ dispatch, customList }) => {
   const [
     pageType,
     setPageType
   ] = useState('list')
+  const complexList = customList.complexList
   const columns = [
     {
       title: 'REQUESTED BY',
@@ -167,85 +160,15 @@ export default () => {
       ),
     },
   ];
-  const data = [
-    {
-      id: '#7',
-      key: '1',
-      name: 'John Brown',
-      email: 'ckctm12@gmail.com',
-      image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
-      subject: 'Mobile Campaign',
-      assignee: 'Claire',
-      priority: 'Low',
-      status: 'Open',
-      date: '22 Oct 2016',
-      tags: ['test tag', 'another tag', 'something tag', 'test tag', 'another tag', 'something tag']
-    },
-    {
-      id: '#5',
-      key: '2',
-      name: 'Jim Green',
-      email: 'nvt.isst.nute@gmail.com',
-      image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
-      subject: 'I need help with adding a new contact data to be...',
-      assignee: 'Irma',
-      priority: 'Medium',
-      status: 'Closed',
-      date: '22 Oct 2016',
-      tags: ['another tag', 'something tag']
-    },
-    {
-      id: '#71',
-      key: '3',
-      name: 'Joe Black',
-      image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
-      subject: 'Mobile Campaign',
-      assignee: 'Judith',
-      priority: 'High',
-      status: 'Closed',
-      date: '22 Oct 2016',
-      tags: ['test tag', 'another tag', 'something tag']
-    },
-    {
-      id: '#7',
-      key: '1',
-      name: 'John Brown',
-      email: 'thuhang.nute@gmail.com',
-      image: 'http://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&f=JPEG?w=1200&h=1290',
-      subject: 'Mobile Campaign',
-      assignee: 'Claire',
-      priority: 'Low',
-      status: 'Open',
-      date: '22 Oct 2016',
-      tags: ['test tag', 'another tag']
-    },
-    {
-      id: '#5',
-      key: '2',
-      name: 'Jim Green',
-      email: 'tranthuy.nute@gmail.com',
-      image: 'http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853',
-      subject: 'I need help with adding a new contact data to be...',
-      assignee: 'Irma',
-      priority: 'Medium',
-      status: 'Closed',
-      date: '22 Oct 2016',
-      tags: ['test tag', 'another tag', 'something tag']
-    },
-    {
-      id: '#71',
-      key: '3',
-      name: 'Joe Black',
-      email: 'binhan628@gmail.com',
-      image: 'http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&f=JPEG?w=4610&h=2968',
-      subject: 'Mobile Campaign',
-      assignee: 'Judith',
-      priority: 'High',
-      status: 'Closed',
-      date: '22 Oct 2016',
-      tags: ['test tag', 'another tag', 'something tag']
-    },
-  ];
+
+  useEffect(() => {
+    dispatch({
+      type: 'customList/fetchComplexList',
+      payload: {
+        locale: getLocale()
+      }
+    })
+  }, [])
 
   const rowSelection = {
     selections: [
@@ -338,12 +261,12 @@ export default () => {
                 ...rowSelection,
               }}
               columns={columns}
-              dataSource={data}
+              dataSource={complexList}
             />
           ) : (
             <Row gutter={[24, 24]}>
               {
-                data.map((item, index) => {
+                complexList.map((item, index) => {
                   return (
                     <Col key={['d', 'ContactCard', index].join('-')} span={8}>
                       <ContactCard
@@ -361,3 +284,8 @@ export default () => {
     </div>
   );
 };
+
+export default connect(({ customList, loading }) => ({
+  customList,
+  loading: loading.models.customList,
+}))(ComplexList);

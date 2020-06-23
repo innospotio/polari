@@ -438,6 +438,14 @@ const routes = [
                     path: '/list/custom/normal',
                     component: __IS_BROWSER
                       ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__custom__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/custom/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/normal'),
                           LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
@@ -452,6 +460,14 @@ const routes = [
                     path: '/list/custom/simple',
                     component: __IS_BROWSER
                       ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__custom__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/custom/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/simple'),
                           LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
@@ -466,6 +482,14 @@ const routes = [
                     path: '/list/custom/complex',
                     component: __IS_BROWSER
                       ? _dvaDynamic({
+                          app: require('@tmp/dva').getApp(),
+                          models: () => [
+                            import(/* webpackChunkName: 'p__list__custom__model.js' */ '/Users/mdsftjoin/Documents/workspace/polari/src/pages/list/custom/model.js').then(
+                              m => {
+                                return { namespace: 'model', ...m.default };
+                              },
+                            ),
+                          ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/custom/complex'),
                           LoadingComponent: require('/Users/mdsftjoin/Documents/workspace/polari/src/components/PageLoading/index')
